@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do</title>
+    
+    <style>
+        body {
+    margin: 0;
+    height: auto; /* Full height */
+    display: flex;
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    background-color: rgb(243, 231, 231); /* Optional */
+}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .box{
+        padding: 30px;
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        color:white;
+        padding: 4px;
+        margin: 35px;
+        border: 2px solid rgb(237, 237, 224);
+        border-radius: 15px;
+        height: 800px;
+        width: 800px;
+        box-shadow: 5px 5px 15px 5px #b3a9a9;
+        text-align: center;
+    }
+    .card{
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            font-size: larger;
+    }
+    .card:hover{
+        
+            border: 2px solid #764ba2;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            /* Smooth transition for all properties */
+            transition: all 0.3s ease;
+    }
+    .task-form{
+        min-width: 150px;
+        color: black;
+        background: #d6d9dd;
+        height: 475px;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #cfd4d9;
+            align-content:flex-start;
+            padding-bottom: 5px;
+        margin: 5px;
+
+    }
+     .form input, .form select, .form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            
+        }
+
+        .form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form input:focus, .form select:focus, .form textarea:focus {
+            outline: none;
+            border-color: #4facfe;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);}
+
+    .form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+            text-align: left;
+        }
+        .priority {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px 15px;
+            border-radius: 0 15px 0 15px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .priority-high { background: #dc3545; }
+        .priority-medium { background: #ffc107; }
+        .priority-low { background: #28a745; }
+        .btn{
+           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+           color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px;
+            flex: 1;
+            /* min-width: 150px; */
+            text-align: center;
+            font-size: larger;
+        }
+        .btn:hover{
+            border: 2px solid #bbb6c0;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            /* Smooth transition for all properties */
+            transition: all 0.3s ease;
+            transform: translateY(-10px);
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <h1>📝Task Manager</h1>
+    <div class="card" id="btnAll">Total Tasks</div>
+<div class="card" id="btnCompleted">Completed tasks</div>
+<div class="card" id="btnPending">Pending Tasks</div>
+
+    <div class="task-form">
+        <h2>Add new task</h2>
+        <div class="form">
+        <label for="tasktitle">Task Title</label>
+        <input type="text" id="tasktitle" placeholder="Enter task title"></div>
+        <div class="form">
+        <label for="Description">Description</label>
+        <textarea type="textarea" id="Description" placeholder="Enter Description here..."></textarea></div>
+        <div class="form">
+        <label for="taskCategory">Category</label>
+                    <select id="taskCategory">
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Health">Health</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
+                    </select>
+        </div> 
+        <div class="form">             
+        <label for="priority">Task Priority</label>
+                    <select id="priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+        </div>
+
+        <button class="btn" onclick="addTask()">Add Task</button>
+        <div id="taskList" style="margin-top:20px;"></div>
+
+    </div>
+<script src="todo.js"></script>
+
+</body>
+</html>
